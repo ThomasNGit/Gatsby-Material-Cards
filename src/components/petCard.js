@@ -1,4 +1,4 @@
-import { Avatar, CardContent, CardHeader, CardMedia, Typography, Button, Collapse } from '@material-ui/core';
+import { Avatar, CardContent, CardHeader, CardMedia, Typography, Button, Collapse, Container } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/core/styles';
 import PetsIcon from '@material-ui/icons/Pets';
@@ -8,8 +8,9 @@ import React from 'react';
 
 const useStyles = makeStyles({
     avatar: {
-        backgroundColor: "red"[500],
-        border: '1px solid black'
+        backgroundColor: "white",
+        border: '1px solid black',
+        color: 'black'
     },
     media: {
         height: 0,
@@ -29,9 +30,10 @@ const useStyles = makeStyles({
     },
     buttonStyle: {
         padding: '7px',
-        margin: '20px 120px',
+        margin: '20px',
         textAlign: "center",
-        fontWeight: "bold"
+        fontWeight: "bold",
+        width: '50%',
     }
 });
 
@@ -61,11 +63,12 @@ export default function PetCard(props) {
                 image={props.path}
                 title= {props.name} 
             />
-
-            <Button className={classes.buttonStyle} onClick={handleShowClick} size="small" color="primary" variant="outlined">
-                <PetsIcon />
-                Scopri di più!
-            </Button>
+            <Container style={{textAlign: 'center'}}>
+                <Button className={classes.buttonStyle} onClick={handleShowClick} size="small" color="primary" variant="contained">
+                    <PetsIcon />
+                    Scopri di più!
+                </Button>
+            </Container>
 
             <Collapse in={show} timeout="auto" unmountOnExit>
                 <CardContent>
